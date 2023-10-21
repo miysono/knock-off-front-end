@@ -9,6 +9,9 @@ export default {
 
     "./src/pages/AccountSettings/AccountSettings.jsx",
     "./src/pages/AccountSettings/components/AccountSettingsItem.jsx",
+    "./src/pages/AccountSettings/components/outlets/AccountSettingsOverview.jsx",
+    "./src/pages/AccountSettings/components/outlets/AccountSecurity.jsx",
+    "./src/pages/AccountSettings/components/outlets/AccountInfo.jsx",
 
     "./src/layout/Footer.jsx",
     "./src/layout/Navbar.jsx",

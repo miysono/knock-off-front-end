@@ -1,13 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isUserOptionsOpen, setIsUserOptionsOpen] = useState(false);
-  const [userData, setUserData] = useState();
-  const { userLoggedIn, logout, currentUser, isLoading } = useAuthContext();
+  const { userLoggedIn, logout, isLoading, userData } = useAuthContext();
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
@@ -25,17 +24,7 @@ const Navbar = () => {
     navigate("/");
   };
 
-  useEffect(() => {
-    if (!userLoggedIn) return;
-
-    const getUserData = async () => {
-      const res = await currentUser();
-      setUserData(res.user);
-      console.log(res.user);
-    };
-
-    // getUserData();
-  }, [userLoggedIn]);
+  console.log(userData);
 
   const handleUserOptions = () => {
     setIsUserOptionsOpen((open) => !open);

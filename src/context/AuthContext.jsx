@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   registerUserRequest,
   loginUserRequest,
@@ -13,8 +13,33 @@ const AuthProvider = ({ children }) => {
     else return false;
   };
 
+  const currentUser = async () => {
+    try {
+      setIsLoading(true);
+      const res = await currentUserRequest();
+      return res;
+    } catch (error) {
+      throw new Error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const [isLoading, setIsLoading] = useState(false);
   const [userLoggedIn, setUserLoggedIn] = useState(isUserLoggedIn);
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await currentUser();
+        console.log("fetched");
+        setUserData(res.user);
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+    fetchData();
+  }, [userLoggedIn]);
 
   const loginWithEmail = async (email, password) => {
     try {
@@ -46,18 +71,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const currentUser = async () => {
-    try {
-      setIsLoading(true);
-      const res = await currentUserRequest();
-      return res;
-    } catch (error) {
-      throw new Error(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const logout = () => {
     localStorage.removeItem("token");
     setUserLoggedIn(false);
@@ -75,6 +88,7 @@ const AuthProvider = ({ children }) => {
         logout,
         userLoggedIn,
         isLoading,
+        userData,
       }}
     >
       {children}
