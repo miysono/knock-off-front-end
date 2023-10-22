@@ -1,11 +1,27 @@
 // Note: Account Security Outlet Component - Account Settings Page
 import { useState } from "react";
 import AccountSettingsOptionIntro from "../AccountSettingsOptionIntro";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 const AccountSecurity = () => {
+  const { resetPassword } = useAuthContext();
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordConfirm, setNewPasswordConfirm] = useState("");
   const [passwordSetOpen, setPasswordSetOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleChangePassword = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await resetPassword(currentPassword, newPassword);
+      console.log(res);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="flex gap-10">
@@ -53,7 +69,10 @@ const AccountSecurity = () => {
                 value={newPasswordConfirm}
                 onChange={(e) => setNewPasswordConfirm(e.target.value)}
               />
-              <button className="w-60 text-lg p-3 border-2 mt-5 duration-300 rounded-full border-indigo-500 hover:scale-105 hover:bg-indigo-500 ">
+              <button
+                onClick={handleChangePassword}
+                className="w-60 text-lg p-3 border-2 mt-5 duration-300 rounded-full border-indigo-500 hover:scale-105 hover:bg-indigo-500 "
+              >
                 Change password
               </button>
             </div>

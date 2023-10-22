@@ -3,6 +3,7 @@ import {
   registerUserRequest,
   loginUserRequest,
   currentUserRequest,
+  resetPasswordRequest,
 } from "../services/user-requests";
 
 const AuthContext = createContext();
@@ -76,7 +77,18 @@ const AuthProvider = ({ children }) => {
     setUserLoggedIn(false);
   };
 
-  const resetPassword = (password, newPassword) => {};
+  const resetPassword = async (password, newPassword) => {
+    try {
+      console.log("am intrat");
+      setIsLoading(true);
+      const res = await resetPasswordRequest(password, newPassword);
+      return res;
+    } catch (err) {
+      throw new Error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -86,6 +98,7 @@ const AuthProvider = ({ children }) => {
         currentUser,
         setUserLoggedIn,
         logout,
+        resetPassword,
         userLoggedIn,
         isLoading,
         userData,

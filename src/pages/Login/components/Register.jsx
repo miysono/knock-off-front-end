@@ -39,7 +39,7 @@ const Register = () => {
     }
 
     try {
-      const res = await register(email, password);
+      const res = await register(email, password, lastName, number, firstName);
       console.log(res);
       if (res?.error === false) {
         toast.success("Register succesful!", {

@@ -9,6 +9,7 @@ export default {
 
     "./src/pages/AccountSettings/AccountSettings.jsx",
     "./src/pages/AccountSettings/components/AccountSettingsItem.jsx",
+    "./src/pages/AccountSettings/components/AccountSettingsOptionIntro.jsx",
     "./src/pages/AccountSettings/components/outlets/AccountSettingsOverview.jsx",
     "./src/pages/AccountSettings/components/outlets/AccountSecurity.jsx",
     "./src/pages/AccountSettings/components/outlets/AccountInfo.jsx",
@@ -19,6 +20,7 @@ export default {
 
     "./src/components/Spinner.jsx",
     "./src/components/Logo.jsx",
+    "./src/components/Listing.jsx",
   ],
   theme: {
     extend: {},
