@@ -7,6 +7,13 @@ export default {
     "./src/pages/homepage/Homepage.jsx",
     "./src/pages/homepage/components/",
 
+    "./src/pages/Listing/ListingPage.jsx",
+    "./src/pages/AllListings/AllListingsPage.jsx",
+    "./src/pages/AllListings/components/FilterInput.jsx",
+    "./src/pages/AllListings/components/FilterSection.jsx",
+    "./src/pages/CreateListing/CreateListingPage.jsx",
+    "./src/components/ListingItem.jsx",
+
     "./src/pages/AccountSettings/AccountSettings.jsx",
     "./src/pages/AccountSettings/components/AccountSettingsItem.jsx",
     "./src/pages/AccountSettings/components/AccountSettingsOptionIntro.jsx",

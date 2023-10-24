@@ -1,12 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../components/Logo";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isUserOptionsOpen, setIsUserOptionsOpen] = useState(false);
   const { userLoggedIn, logout, isLoading, userData } = useAuthContext();
+  const userModalRef = useRef(null);
+  const userSectionRef = useRef(null);
   const navigate = useNavigate();
   const handleLogout = () => {
     logout();
@@ -24,11 +26,26 @@ const Navbar = () => {
     navigate("/");
   };
 
-  console.log(userData);
-
   const handleUserOptions = () => {
     setIsUserOptionsOpen((open) => !open);
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (
+        userModalRef.current &&
+        !userModalRef.current.contains(e.target) &&
+        userSectionRef.current &&
+        !userSectionRef.current.contains(e.target)
+      ) {
+        setIsUserOptionsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <header className="hidden lg:block lg:sticky top-0 z-50 bg-white text-gray-900 dark:bg-neutral-900 dark:text-gray-100 border-b-2 border-indigo-500 border-opacity-20">
@@ -42,7 +59,7 @@ const Navbar = () => {
           </li>
           {/* SEARCH BAR */}
           <li className="text-dark-900 flex flex-1 py-4 dark:text-gray-100">
-            <div className="border-2 duration-300 border-indigo-500 px-4 py-2 rounded-full flex items-center hover:shadow hover:shadow-indigo-500 hover:scale-105">
+            <div className="border-2 duration-300 border-indigo-500  px-4 py-2 rounded-full flex items-center hover:shadow hover:shadow-indigo-500 hover:scale-105">
               <input
                 type="text"
                 className="dark:bg-neutral-900 outline-none"
@@ -58,15 +75,18 @@ const Navbar = () => {
           </li>
           {/* USER AND OPTIONS */}
           <li className="flex text-base gap-5 items-center font-semibold text-gray-900 dark:text-gray-100">
-            <p>
-              Add your property to{" "}
-              <span className="text-indigo-500 font-semibold tracking-wider">
-                Knock.
-              </span>
-            </p>
+            <Link to="/create-listing">
+              <p className="hover:underline">
+                Add your property to{" "}
+                <span className="text-indigo-500 font-semibold tracking-wider">
+                  Knock.
+                </span>
+              </p>
+            </Link>
 
             {/* USER OVERLAY */}
             <div
+              ref={userSectionRef}
               onClick={handleUserOptions}
               className={`border-2 duration-300 ${
                 isUserOptionsOpen && "shadow shadow-indigo-500 scale-105"
@@ -100,7 +120,10 @@ const Navbar = () => {
             {/* IF THE USER CLICKS ON THE USER SECTION THE MODAL WILL OPEN */}
             {/* MODAL WINDOW */}
             {isUserOptionsOpen && (
-              <div className="z-50 absolute font-normal overflow-hidden bg-white dark:bg-neutral-900 border-2 mt-1 shadow shadow-indigo-500 border-indigo-500 w-72 right-20 top-16 rounded-3xl">
+              <div
+                ref={userModalRef}
+                className="z-50 absolute font-normal overflow-hidden bg-white dark:bg-neutral-900 border-2 mt-1 shadow shadow-indigo-500 border-indigo-500 border-opacity-20 w-72 right-20 top-16 rounded-3xl"
+              >
                 <div className="flex flex-col">
                   {/* IF THE USER IS LOGGED IN IT WILL SHOW THE CORRESPONDING OPTIONS */}
                   {/* OTHERWISE IT WILL DSIPLAY THE LOGIN/LOGOUT ROUTES */}
@@ -109,6 +132,17 @@ const Navbar = () => {
                       <p className="text-center py-3">
                         Welcone back, {userData?.first_name}
                       </p>
+
+                      <Link to="/create-listing">
+                        <p className="hover:bg-indigo-500 px-5 py-3 hover:bg-opacity-10">
+                          List a new property
+                        </p>
+                      </Link>
+                      <Link to="/create-listing">
+                        <p className="hover:bg-indigo-500 px-5 py-3 hover:bg-opacity-10">
+                          My listings
+                        </p>
+                      </Link>
                       <Link to="/account-settings">
                         <p className="hover:bg-indigo-500 px-5 py-3 hover:bg-opacity-10">
                           My account
@@ -118,7 +152,7 @@ const Navbar = () => {
                       {/* LOGOUT */}
                       <p
                         onClick={handleLogout}
-                        className="hover:bg-indigo-500 px-5 py-3 border-t-2 border-indigo-500 hover:bg-opacity-10"
+                        className="hover:bg-indigo-500 px-5 py-3 border-t-2 border-indigo-500 border-opacity-20 hover:bg-opacity-10"
                       >
                         Logout
                       </p>

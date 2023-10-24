@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Listing = ({ listingData }) => {
+const MiniListingItem = ({ listingData }) => {
   return (
-    <div className="w-60 overflow-hidden mt-10">
+    <div className="w-60 overflow-hidden">
       <Link to={`/listings/${listingData?.id}`}>
         <img
           src={listingData?.photos?.cover}
@@ -23,4 +23,4 @@ const Listing = ({ listingData }) => {
   );
 };
 
-export default Listing;
+export default MiniListingItem;

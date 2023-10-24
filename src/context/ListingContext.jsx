@@ -48,32 +48,32 @@ const ListingProvider = ({ children }) => {
     }
   };
 
-  const createListing = async ({
+  const createListing = async (
     coverImage,
     title,
     description,
-    adress,
+    address,
     pricePerNight,
     pricePerPerson,
     lat = null,
     lon = null,
     stars = null,
-    flowers = null,
-  }) => {
+    flowers = null
+  ) => {
     try {
       setIsLoading(true);
-      const res = await createListingRequest({
+      const res = await createListingRequest(
         coverImage,
         title,
         description,
-        adress,
+        address,
         pricePerNight,
         pricePerPerson,
         lat,
         lon,
         stars,
-        flowers,
-      });
+        flowers
+      );
       return res;
     } catch (error) {
       throw new Error(error);

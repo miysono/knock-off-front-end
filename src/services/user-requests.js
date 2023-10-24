@@ -1,3 +1,4 @@
+import { data } from "autoprefixer";
 import axios from "axios";
 
 //USER REQUESTS / AUTHENTICATION
@@ -85,7 +86,7 @@ const createListingRequest = async (
   coverImage,
   title,
   description,
-  adress,
+  address,
   pricePerNight,
   pricePerPerson,
   lat,
@@ -99,7 +100,7 @@ const createListingRequest = async (
       coverImage,
       title,
       description,
-      adress,
+      address,
       pricePerNight,
       pricePerPerson,
       lat,
@@ -107,7 +108,12 @@ const createListingRequest = async (
       stars,
       flowers,
     },
-    { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "multipart/form-data",
+      },
+    }
   );
   return response.data;
 };
