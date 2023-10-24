@@ -1,14 +1,15 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../../layout/Navbar";
 import Footer from "../../layout/Footer";
+import PageBody from "../../layout/PageBody";
 
 const AccountSettings = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen flex justify-center items-start">
+      <PageBody>
         <Outlet />
-      </div>
+      </PageBody>
       <Footer />
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import MiniListingItem from "../../components/MiniListingItem";
 import { useListingContext } from "../../hooks/useListingContext";
 import PageBody from "../../layout/PageBody";

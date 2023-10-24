@@ -24,7 +24,7 @@ const AccountSecurity = () => {
   };
 
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-10 justify-center">
       <article className="max-w-3xl">
         <AccountSettingsOptionIntro
           pageTitle="Account security"

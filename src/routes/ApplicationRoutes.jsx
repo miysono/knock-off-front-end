@@ -1,16 +1,27 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Login from "../pages/Login/components/Login";
-import Register from "../pages/Login/components/Register";
+
+// AUTH ROUTES
+import Login from "../pages/Login/components/outlets/Login";
+import Register from "../pages/Login/components/outlets/Register";
 import Auth from "../pages/Login/Auth";
-import Homepage from "../pages/Homepage/Homepage";
-import AccountSettings from "../pages/AccountSettings/AccountSettings";
-import AccountInfo from "../pages/AccountSettings/components/outlets/AccountInfo";
-import AccountSecurity from "../pages/AccountSettings/components/outlets/AccountSecurity";
-import AccountSettingsOverview from "../pages/AccountSettings/components/outlets/AccountSettingsOverview";
-import ListingPage from "../pages/Listing/ListingPage";
-import AllListingsPage from "../pages/AllListings/AllListingsPage";
-import PublicUserProfile from "../pages/PublicUserProfile/PublicUserProfile";
-import CreateListingPage from "../pages/CreateListing/CreateListingPage";
+
+// HOMEPAGE ROUTE
+import Homepage from "../pages/homepage/Homepage";
+
+// ACCOUNT SETTINGS ROUTES
+import AccountSettings from "../pages/account-settings/AccountSettings";
+import AccountInfo from "../pages/account-settings/components/outlets/AccountInfo";
+import AccountSecurity from "../pages/account-settings/components/outlets/AccountSecurity";
+import AccountSettingsOverview from "../pages/account-settings/components/outlets/AccountSettingsOverview";
+
+// LISTING ROUTES
+import CreateListingPage from "../pages/create-listing/CreateListingPage";
+import AllListingsPage from "../pages/all-listings/AllListingsPage";
+import ListingPage from "../pages/listing-page/ListingPage";
+
+// PUBLIC USER PROFILE
+import PublicUserProfile from "../pages/public-user-profile/PublicUserProfile";
+import PageNotFound from "../pages/page-not-found/PageNotFound";
 
 const ApplicationRoutes = () => {
   return (
@@ -42,7 +53,7 @@ const ApplicationRoutes = () => {
         <Route path="users/:id" element={<PublicUserProfile />} />
 
         {/* 404 ROUTE  */}
-        <Route path="404" element={<div>404</div>} />
+        <Route path="404" element={<PageNotFound />} />
         <Route path="*" element={<Navigate replace to="/404" />} />
       </Routes>
     </BrowserRouter>

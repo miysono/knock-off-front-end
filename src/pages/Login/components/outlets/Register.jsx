@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../../hooks/useAuthContext";
+import { useAuthContext } from "../../../../hooks/useAuthContext";
 import { toast } from "react-toastify";
 
 const Register = () => {

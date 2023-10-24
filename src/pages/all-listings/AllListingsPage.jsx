@@ -6,9 +6,10 @@ import { useListingContext } from "../../hooks/useListingContext";
 import { useEffect } from "react";
 import FilterInput from "./components/FilterInput";
 import FilterSection from "./components/FilterSection";
+import Skeleton from "react-loading-skeleton";
 
 const AllListingsPage = () => {
-  const { viewAllListings, allListingsData } = useListingContext();
+  const { viewAllListings, allListingsData, isLoading } = useListingContext();
 
   useEffect(() => {
     if (allListingsData) return;
@@ -92,6 +93,13 @@ const AllListingsPage = () => {
 
             {/* LISTINGS SECTION */}
             <section>
+              {/* IF DATA IS BEING FETCHED SHOW LOADING SKELETONS */}
+              {isLoading &&
+                Array.from({ length: 10 }).map((item) => (
+                  <Skeleton key={item} height={200} className="my-5" />
+                ))}
+
+              {/* IF DATA IS FETCHED SHOW LISTINGS */}
               {listingData?.map((listing) => (
                 <ListingItem key={listing?.id} listing={listing} />
               ))}

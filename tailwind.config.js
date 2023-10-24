@@ -1,33 +1,56 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./src/pages/login/components/Login.jsx",
-    "./src/pages/login/components/Register.jsx",
+    //LOGIN
+    "./src/pages/login/Auth.jsx",
     "./src/pages/login/components/AuthLayout.jsx",
+    "./src/pages/login/components/LoginIcons.jsx",
+    "./src/pages/login/components/outlets/Login.jsx",
+    "./src/pages/login/components/outlets/Register.jsx",
+
+    //Account Settings
+    "./src/pages/account-settings/AccountSettings.jsx",
+    "./src/pages/account-settings/components/AccountSettingsItem.jsx",
+    "./src/pages/account-settings/components/AccountSettingsOptionIntro.jsx",
+    "./src/pages/account-settings/components/outlets/AccountSettingsOverview.jsx",
+    "./src/pages/account-settings/components/outlets/AccountSecurity.jsx",
+    "./src/pages/account-settings/components/outlets/AccountInfo.jsx",
+
+    //All Listings
+    "./src/pages/all-listings/AllListingsPage.jsx",
+    "./src/pages/all-listings/components/FilterInput.jsx",
+    "./src/pages/all-listings/components/FilterSection.jsx",
+
+    //Create Listing
+    "./src/pages/create-listing/CreateListingPage.jsx",
+    "./src/pages/create-listing/components/",
+
+    //Homepage
     "./src/pages/homepage/Homepage.jsx",
     "./src/pages/homepage/components/",
 
-    "./src/pages/Listing/ListingPage.jsx",
-    "./src/pages/AllListings/AllListingsPage.jsx",
-    "./src/pages/AllListings/components/FilterInput.jsx",
-    "./src/pages/AllListings/components/FilterSection.jsx",
-    "./src/pages/CreateListing/CreateListingPage.jsx",
-    "./src/components/ListingItem.jsx",
+    //Listing Page
+    "./src/pages/listing-page/ListingPage.jsx",
+    "./src/pages/listing-page/components",
 
-    "./src/pages/AccountSettings/AccountSettings.jsx",
-    "./src/pages/AccountSettings/components/AccountSettingsItem.jsx",
-    "./src/pages/AccountSettings/components/AccountSettingsOptionIntro.jsx",
-    "./src/pages/AccountSettings/components/outlets/AccountSettingsOverview.jsx",
-    "./src/pages/AccountSettings/components/outlets/AccountSecurity.jsx",
-    "./src/pages/AccountSettings/components/outlets/AccountInfo.jsx",
+    //Public user profile
+    "./src/pages/public-user-profile/PublicUserProfile.jsx",
 
+    //404
+    "./src/pages/page-not-found/PageNotFound.jsx",
+
+    //Layouts
     "./src/layout/Footer.jsx",
     "./src/layout/Navbar.jsx",
     "./src/layout/PageBody.jsx",
 
+    //Global components
+    "./src/components/Button.jsx",
+    "./src/components/Container.jsx",
     "./src/components/Spinner.jsx",
     "./src/components/Logo.jsx",
     "./src/components/Listing.jsx",
+    "./src/components/ListingItem.jsx",
   ],
   theme: {
     extend: {},

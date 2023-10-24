@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import { useListingContext } from "../../hooks/useListingContext";
 import Navbar from "../../layout/Navbar";
 import Footer from "../../layout/Footer";
-import { useListingContext } from "../../hooks/useListingContext";
+import PageBody from "../../layout/PageBody";
 
 const CreateListingPage = () => {
   const [initialDataState, setInitialDataState] = useState({
@@ -62,7 +63,7 @@ const CreateListingPage = () => {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen container mx-auto px-28">
+      <PageBody>
         <section className="mt-10">
           <p>Create new listing</p>
           {/* CREATE INPUTS FOR ALL THE INITIAL DATA */}
@@ -222,7 +223,7 @@ const CreateListingPage = () => {
             <button type="submit">Create listing</button>
           </form>
         </section>
-      </main>
+      </PageBody>
       <Footer />
     </>
   );

@@ -7,7 +7,7 @@ const AccountSettingsOptionIntro = ({
   noBreadcrumb,
 }) => {
   return (
-    <div className="mt-10">
+    <section className="mt-10 mx-auto">
       {!noBreadcrumb && (
         <div className="flex items-center mb-5 gap-2.5">
           <Link to="/account-settings">
@@ -22,7 +22,7 @@ const AccountSettingsOptionIntro = ({
       )}
       <p className="text-2xl font-semibold">{pageTitle}</p>
       <p className="text-xl mt-2.5">{pageDesc}</p>
-    </div>
+    </section>
   );
 };
 

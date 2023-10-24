@@ -1,12 +1,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useListingContext } from "../../hooks/useListingContext";
 import { useEffect, useState } from "react";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Navbar from "../../layout/Navbar";
 import Footer from "../../layout/Footer";
 import Skeleton from "react-loading-skeleton";
-import "leaflet/dist/leaflet.css";
-import "react-loading-skeleton/dist/skeleton.css";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import PageBody from "../../layout/PageBody";
 
 const ListingPage = () => {

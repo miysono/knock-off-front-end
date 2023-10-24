@@ -2,6 +2,9 @@ import ApplicationRoutes from "./routes/ApplicationRoutes";
 import { AuthProvider } from "./context/AuthContext";
 import { ToastContainer } from "react-toastify";
 import { ListingProvider } from "./context/ListingContext";
+import "leaflet/dist/leaflet.css";
+import "react-loading-skeleton/dist/skeleton.css";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <>

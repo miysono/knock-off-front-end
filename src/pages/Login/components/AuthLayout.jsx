@@ -1,9 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../../layout/Navbar";
-import "react-toastify/dist/ReactToastify.css";
 import { useAuthContext } from "../../../hooks/useAuthContext";
-import Spinner from "../../../components/Spinner";
 import { useEffect } from "react";
+import Navbar from "../../../layout/Navbar";
+import Spinner from "../../../components/Spinner";
 
 const AuthLayout = ({ children }) => {
   const { isLoading, userLoggedIn } = useAuthContext();

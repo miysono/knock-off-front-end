@@ -5,7 +5,7 @@ import AccountSettingsOptionIntro from "../AccountSettingsOptionIntro";
 const AccountInfo = () => {
   const { userData } = useAuthContext();
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-10 justify-center">
       <article className="max-w-3xl">
         <AccountSettingsOptionIntro
           pageTitle="Account Information"
