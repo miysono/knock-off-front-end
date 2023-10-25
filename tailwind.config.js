@@ -35,6 +35,8 @@ export default {
 
     //Public user profile
     "./src/pages/public-user-profile/PublicUserProfile.jsx",
+    "./src/pages/public-user-profile/components/UserProfileSection.jsx",
+    "./src/pages/public-user-profile/components/UserInformation.jsx",
 
     //404
     "./src/pages/page-not-found/PageNotFound.jsx",
@@ -51,7 +53,6 @@ export default {
     "./src/components/Logo.jsx",
     "./src/components/MiniListingItem.jsx",
     "./src/components/ListingItem.jsx",
-
     "./src/components/ReviewCard.jsx",
     "./src/components/UserCard.jsx",
   ],

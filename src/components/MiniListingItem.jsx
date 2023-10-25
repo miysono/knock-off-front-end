@@ -11,7 +11,7 @@ const MiniListingItem = ({ listingData }) => {
         />
 
         <div className="flex justify-between items-center">
-          <p className="font-semibold truncate">{listingData?.address}</p>
+          <p className="truncate">{listingData?.address}</p>
           <div className="flex">
             {Array.from({ length: listingData?.stars }, (_, i) => (
               <img
@@ -23,11 +23,9 @@ const MiniListingItem = ({ listingData }) => {
           </div>
         </div>
         <div className="w-full line-clamp-1">
-          <p className="font-semibold">{listingData?.title}</p>
+          <p className="">{listingData?.title}</p>
         </div>
-        <p className="font-semibold">
-          {listingData?.price_per_night} € / night
-        </p>
+        <p className="">{listingData?.price_per_night} € / night</p>
       </Link>
     </div>
   );
