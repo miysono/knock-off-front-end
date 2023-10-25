@@ -49,8 +49,11 @@ export default {
     "./src/components/Container.jsx",
     "./src/components/Spinner.jsx",
     "./src/components/Logo.jsx",
-    "./src/components/Listing.jsx",
+    "./src/components/MiniListingItem.jsx",
     "./src/components/ListingItem.jsx",
+
+    "./src/components/ReviewCard.jsx",
+    "./src/components/UserCard.jsx",
   ],
   theme: {
     extend: {},
